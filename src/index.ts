@@ -3,14 +3,14 @@ import { DurableObject } from "cloudflare:workers";
 export class MyDurableObject extends DurableObject<Env> {
   constructor(ctx: DurableObjectState, env: Env) {
     super(ctx, env);
-    console.log("constructor!nn");
+    console.log("constructor");
     this.ctx.blockConcurrencyWhile(async () => {
       console.log("blockConcurrencyWhile");
     });
   }
 
   async sayHello(name: string = "world"): Promise<string> {
-    console.log("sayHello!");
+    console.log("sayHello");
     return `Hello ${name}!`;
   }
 }
